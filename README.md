@@ -1,4 +1,4 @@
-# 이티보드 신재생에너지코딩 키트 (기본) 콘텐츠
+# 이티보드 신재생에너지 코딩 키트 (기본) 콘텐츠
 
 * ET-Board Renewable Coding Kit Basic Contents
 * 태양광 발전과 풍력발전으로 생산된 전력을 확인한다.
