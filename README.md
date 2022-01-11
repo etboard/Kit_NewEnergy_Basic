@@ -1,6 +1,6 @@
 # 이티보드 신재생에너지 코딩 키트 (기본)
 
-* ETBoard Renewable Coding Kit (Basic)
+* ET-Board Renewable Coding Kit (Basic)
 * 태양광 발전과 풍력발전으로 생산된 전력을 확인한다.
 * Solar Panel, Wind Turbine, Voltage Sensor, OLED
 </br></br>
@@ -15,7 +15,7 @@
 
 ### 지원 보드
 
-* 이티보드(ETBoard)
+* 이티보드(ET-Board)
 * ESP32-DevKit
 * NodeMCU-32S
 </br></br>
@@ -23,7 +23,7 @@
 
 ### 문서 및 자료(Documentation & File)
 
-아래 자료는 [이티보드(ETBoard) 자료실](http://et.ketri.re.kr/board/)에서도 얻을 수 있습니다.
+아래 자료는 [이티보드(ET-Board) 자료실](http://et.ketri.re.kr/board/)에서도 얻을 수 있습니다.
 </br></br>
 
 
