@@ -6,6 +6,7 @@
  * Warning      : Arduino IDE에서 u8g2 라이브러리를 추가해서 컴파일 해야힘
  * Created Date :
  * Modified     : 2022.01.12 : SCS : 소스 크린징
+ * Modified     : 2022.07.11 : SCS : change baud rate 9600 -> 115200 and c_Value
 ******************************************************************************************/
 
 //==========================================================================================
@@ -17,13 +18,13 @@
 OLED_U8G2 oled;
 
 // 전압 보정 변수 선언
-const double c_Value = 0.001221245421;
+const double c_Value = 0.000806;  // (3.3v / 4096)
 
 //==========================================================================================
 void setup()
 //==========================================================================================
 {
-  Serial.begin(9600);
+  Serial.begin(115200);
   oled.setup();
 }
 
@@ -54,7 +55,7 @@ void display_oled()
 
   // 풍력 발전량 측정 센서
   int windturbine_voltage_Value = analogRead(A5);
-  Serial.print(" 풍력 센서 : ");
+  Serial.print("  풍력 센서 : ");
   Serial.println(windturbine_voltage_Value);
   Serial.println("---------------------");
 
@@ -67,8 +68,8 @@ void display_oled()
   strcat(text2," V");
 
   oled.setLine(1,"* ECO Energy *");    // OLED 첫 번째 줄 : 시스템 이름
-  oled.setLine(2,text1);               // OLED 두 번째 줄 : 태양광 발전량
-  oled.setLine(3,text2);               // OLED 세 번째 줄 : 풍력 발전량
+  oled.setLine(2,text1);               // OLED 두 번째 줄 : 태양광 발전 전압
+  oled.setLine(3,text2);               // OLED 세 번째 줄 : 풍력   발전 전압
   oled.display();
 }
 
