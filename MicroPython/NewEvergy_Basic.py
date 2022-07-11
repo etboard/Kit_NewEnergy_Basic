@@ -5,7 +5,7 @@
 # CopyRight    : (주)한국공학기술연구원(www.ketri.re.kr)
 # Created Date : 2022.02.08
 # Reference    :
-# Modified     :
+# Modified     : 2022.07.11 : Add 전압 보정 변수
 # ******************************************************************************************
 
 # import
@@ -14,7 +14,7 @@ from machine import Pin, ADC
 from ETboard.lib.pin_define import *
 from ETboard.lib.OLED_U8G2 import *                  # OLED 제어를 위한 라이브러리 불러오기
 
-C_VALUE = 0.000806;                                  # 전압 보정 변수 선언// (3.3v / 4096)
+C_VALUE = 0.000806;                                  # 전압 보정 변수 선언 (3.3v / 4096)
 
 # global variable
 oled = oled_u8g2()
