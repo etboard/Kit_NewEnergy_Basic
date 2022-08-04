@@ -21,9 +21,8 @@
 </br></br>
 
 
-### 문서 및 자료(Documentation & File)
-
-아래 자료는 [이티보드(ET-Board) 자료실](http://et.ketri.re.kr/board/)에서도 얻을 수 있습니다.
+### 이티보드 펌웨어 업로더(ETboard Firmware Uploader)
+* [다운로드] (http://www.oapass.com/pds/pub/ketri/2022/etboard_firmware_uploader/setup.exe)
 </br></br>
 
 
