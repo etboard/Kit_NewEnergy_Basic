@@ -7,6 +7,7 @@
  * Created Date :
  * Modified     : 2022.01.12 : SCS : 소스 크린징
  * Modified     : 2022.07.11 : SCS : change baud rate 9600 -> 115200 and c_Value
+ * Modified     : 2022.10.03 : SCS : compatable with UNO
 ******************************************************************************************/
 
 //==========================================================================================
@@ -46,12 +47,10 @@ void display_oled()
   Serial.println(solar_voltage_Value);
 
   // OLED 텍스트 표시
-  char text1[32] = "S: ";
-  char value1[32];
-  String str = String(solar_voltage_Value*c_Value, DEC);
-  str.toCharArray(value1,6);
-  strcat(text1,value1);
-  strcat(text1," V");
+  float float_value = solar_voltage_Value * c_Value;
+  String str_value = "S: " + String(float_value, 2) + " V";
+  char char_value1[16];  
+  str_value.toCharArray(char_value1,11);
 
   // 풍력 발전량 측정 센서
   int windturbine_voltage_Value = analogRead(A5);
@@ -60,16 +59,14 @@ void display_oled()
   Serial.println("---------------------");
 
   // OLED 텍스트 표시
-  char text2[32] = "W: ";
-  char value2[32];
-  String str2 = String(windturbine_voltage_Value*c_Value, DEC);
-  str2.toCharArray(value2,6);
-  strcat(text2,value2);
-  strcat(text2," V");
+  float_value = windturbine_voltage_Value * c_Value;
+  str_value = "W: " + String(float_value, 2) + " V";
+  char char_value2[16];  
+  str_value.toCharArray(char_value2,11);
 
   oled.setLine(1,"* ECO Energy *");    // OLED 첫 번째 줄 : 시스템 이름
-  oled.setLine(2,text1);               // OLED 두 번째 줄 : 태양광 발전 전압
-  oled.setLine(3,text2);               // OLED 세 번째 줄 : 풍력   발전 전압
+  oled.setLine(2,char_value1);         // OLED 두 번째 줄 : 태양광 발전 전압
+  oled.setLine(3,char_value2);         // OLED 세 번째 줄 : 풍력   발전 전압
   oled.display();
 }
 
