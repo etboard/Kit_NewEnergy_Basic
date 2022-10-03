@@ -7,7 +7,7 @@
  * Created Date :
  * Modified     : 2022.01.12 : SCS : 소스 크린징
  * Modified     : 2022.07.11 : SCS : change baud rate 9600 -> 115200 and c_Value
- * Modified     : 2022.10.03 : SCS : compatable with UNO
+ * Modified     : 2022.10.03 : SCS : support arduino uno with ET-Upboard
 ******************************************************************************************/
 
 //==========================================================================================

@@ -3,7 +3,7 @@
  * Date : 2018.09.30  
  * Description : SSD1306 OLED Display  
  * Reference: FontUsage.ino in u8g2 examples 
- * Modified     : 2022.10.03 : SCS : compatable with UNO 
+ * Modified     : 2022.10.03 : SCS : support arduino uno with ET-Upboard
  **********************************************************************************/
 
 #include "oled_u8g2.h"
