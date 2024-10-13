@@ -56,6 +56,8 @@ def solar_convert(value):
     value = int(value/1.5)
     if (value >= 1023):
         value = 1023
+    if (value > 50):
+        value = 1023
     pwm1.duty(value)
     
 def wind_convert(value):    
