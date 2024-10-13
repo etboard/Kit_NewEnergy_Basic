@@ -1,6 +1,6 @@
 # *****************************************************************************************
 # FileName     : NewEnergy_to_PowerSim_Basic
-# Description  : 신재생에너지 코딩 키트 (기본)
+# Description  : 신재생에너지 코딩 키트, 가상 전력 변환(기본)
 # Author       : 손정인
 # CopyRight    : (주)한국공학기술연구원(www.ketri.re.kr)
 # Created Date : 2022.02.08
