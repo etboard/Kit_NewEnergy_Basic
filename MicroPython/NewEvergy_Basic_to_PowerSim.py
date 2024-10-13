@@ -1,5 +1,5 @@
 # *****************************************************************************************
-# FileName     : NewEnergy_with_Power_Basic
+# FileName     : NewEnergy_to_PowerSim_Basic
 # Description  : 신재생에너지 코딩 키트 (기본)
 # Author       : 손정인
 # CopyRight    : (주)한국공학기술연구원(www.ketri.re.kr)
@@ -9,7 +9,7 @@
 # Modified     : 2022.12.21 : YSY : 변수 명명법 통일
 # Modified     : 2023.03.14 : PEJ : 주석 및 코드 길이 수정
 # Modified     : 2024.10.06 : SCS : 에너지 변환
-
+# Modified     : 2024.10.13 : SCS : Clean Code
 # *****************************************************************************************
 
 # import
@@ -22,7 +22,7 @@ from ETboard.lib.OLED_U8G2 import *              # OLED 제어를 위한 라이�
 # ETBoard 핀번호 설정
 #------------------------------------------------------------------------------------------
 # global variable
-#oled = oled_u8g2()
+oled = oled_u8g2()
 
 solar_pin = ADC(Pin(A3))                         # 태양광 발전량 측정 센서
 wind_pin  = ADC(Pin(A5))                         # 풍력 발전량 측정 센서
@@ -39,10 +39,11 @@ pwm2 = PWM(Pin(D4))                              # PWM 생성
 # setup
 #========================================================================================== 
 def setup() :
-    #solar_pin.atten(ADC.ATTN_11DB)               # 태양광 발전량 측정 센서 입력 모드 설정
-    #wind_pin.atten(ADC.ATTN_11DB)                # 풍력 발전량 측정 센서  입력 모드 설정
+    solar_pin.atten(ADC.ATTN_11DB)               # 태양광 발전량 측정 센서 입력 모드 설정
+    wind_pin.atten(ADC.ATTN_11DB)                # 풍력 발전량 측정 센서  입력 모드 설정
+    
     pwm1.deinit()                                # 기존 PWM 재설정
-    pwm2.deinit()                               # 기존 PWM 재설정
+    pwm2.deinit()                                # 기존 PWM 재설정
     pwm1.init()
     pwm2.init()
     pwm1.freq(5000)
@@ -71,39 +72,34 @@ def loop() :
     # 태양광 발전량 측정 센서로 태양광 발전 전압 구하기
     #--------------------------------------------------------------------------------------  
     solar_value = solar_pin.read()               # 태양광 발전량 측정값 저장
-    #solar_power = solar_value * c_value          # 태양광 발전량 전압 계산
+    solar_power = solar_value * c_value          # 태양광 발전량 전압 계산
     
-    #print("태양광 센서 : ", solar_power, "V", solar_value)
-    #print(solar_value)
-    solar_convert(solar_value)
+    print("태양광 센서 : ", solar_power, "V")
+    solar_convert(solar_value)    
 
     #--------------------------------------------------------------------------------------
     # 풍력 발전량 측정 센서로 풍력 발전 전압 구하기
     #--------------------------------------------------------------------------------------
     wind_value = wind_pin.read()                 # 풍력 발전량 측정값 저장
     wind_power = wind_value * c_value            # 풍력 발전량 전압 계산
-    #print(wind_value)
 
-    #print(" 풍력  센서 : ", wind_power, "V", wind_value)
-    
-    wind_convert(wind_value)
-    #print("---------------------");
+    print(" 풍력  센서 : ", wind_power, "V")    
+    wind_convert(wind_value)    
+    print("---------------------");
     
     #--------------------------------------------------------------------------------------
     # OLED 텍스트 표시
     #--------------------------------------------------------------------------------------
-    #text1 = "Solar: %d" %(solar_power) + "V"         
-    #text2 = "Wind: %d" %(wind_power) + "V"
-
-    '''
+    text1 = "Solar: %d" %(solar_power) + "V"         
+    text2 = "Wind: %d" %(wind_power) + "V"
+    
     oled.clear()
     oled.setLine(1, "* ECO Energy *")            # OLED 첫 번째 줄 : 시스템 이름
     oled.setLine(2, text1)                       # OLED 두 번째 줄 : 태양광 발전 전압
     oled.setLine(3, text2)                       # OLED 세 번째 줄 : 풍력 발전 전압
-    oled.display()
-    '''
+    oled.display()    
     
-    #time.sleep(0.01)
+    #time.sleep(0.05)
     
 
 if __name__ == "__main__" :
